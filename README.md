@@ -27,6 +27,11 @@ In this sprint, I worked on teletype-client library in order to use it in a VS C
 
 *code Link: [GitHub Repository dev branch - Teletype Client commit](https://github.com/Rijul5/vscode-teletype/commit/466409c245f211261088d2fa97e18794cf3aa9a8)*
 
+
+I also forked the teletype-client library and made some changes in order to resolve the issues related to pusher and use type declarations file created in my project.
+
+*code Link: [GitHub Repository Forked from Atom/Teletype Client](https://github.com/Rijul5/teletype-client)*
+
 + **Developing VS Code Teletype extension for Che: Join Portal (Completed on August 9, 2019)**
 
 Next, *Join Portal* command along with the functionality was added so that any guest from VS Code extension can join the portal launched from Atom Teletype editor. This means it will allow the user/guest using Che to join the portal launched from Atom editor. In addition, validations were added so that user enter the right portal ID and they were further integrated with the portal module present in the teletype-client library. By the end of this step, validations and necessary calls to join portal were executing.
@@ -50,3 +55,7 @@ In this sprint I tried different packages in order to establish RTCPeerConnectio
 + Teletype-server library should be added to the above VS code extension to enable a host to create a headless server from Che so that guests can join it from different editors.
 
 + Synchronization challenges in live collaboration mode with multiple language servers and editors, need to be explored.
+
+
+# Conclusions
+During this assignment, I learned many technologies - Eclipse Che, Pusher, Atom-Teletype, VS Code Extensions, WebRTC, and Typescript. It was a great experience in developing a VS Code extension and explore different ways to deploy this extension in Che. The prime challenges in this research was to use teletype libraries in VS Code extension because most of the features used currently in teletype such as Pusher and WebRTC have direct dependencies on browser. It is observed through this project that there is no way to use WebRTC in VS Code extensions. The available packages such as node-wbrtc and node-rtc-peer-connection are either hard to install, broken, or not maintained. The options such as including a wrtc binary for every operating system or spawning a whole new electron process are not ideal obviously. Therefore, other research and development for pair programming environment in Che in other directions are required.
