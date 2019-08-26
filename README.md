@@ -38,24 +38,48 @@ Next, *Join Portal* command along with the functionality was added so that any g
 
 *code Link: [GitHub Repository dev branch - Join Portal commit](https://github.com/Rijul5/vscode-teletype/commit/cc570c7af8031ed8d83422a432526351dba562b5)*
 
-<img src="images/Pusher-Debug-Console.png" alt="Debug Console of Pusher" class="inline"/>
 
 + **Developing VS Code Teletype extension for Che: RTCPeerConnection and Guest-Portal Bindings (Completed on August 25, 2019)**
 
-In this sprint I tried different packages in order to establish RTCPeerConnection between the client/guest created from VS Code extension and the portal/host launched from the Atom editor. Eventually, I decided to use [wrtc](https://www.npmjs.com/package/wrtc) package. I also used external sources available on GitHub to figure out the guest-portal and editor bindings as my main focus was on developing a simple extension with teletype libraries that work well in Che through a devfile. At the end of this step, I was able to send signals from the guest (VS code) to host(Atom Editor). There are still some challenges in this direction which I am explaining in the next step.
+In this sprint, I tried different packages in order to establish RTCPeerConnection between the client/guest created from VS Code extension and the portal/host launched from the Atom editor. Eventually, I decided to use [wrtc](https://www.npmjs.com/package/wrtc) package. I also used external sources available on GitHub to figure out the guest-portal and editor bindings as my main focus was on developing a simple extension with teletype libraries that work well in Che through a devfile. At the end of this step, as a host from VS Code I was able to join the portal created from Atom editor. As shown in the figures below, the connection is established between the guest(VS Code) and host(Atom editor). Furthermore, the messages are received on both the sides. There are still some challenges in this direction which I will be explaining in the section - Challenges and Future Work.
 
 <img src="images/events.png" alt="Events Received on Atom from VS Code guest" class="inline"/>
 
-# Challenges and Future Work
+<img src="images/connected.png" alt="Events Received on Atom from VS Code guest" class="inline"/>
 
-+ The RTCDataChannel readyState does not come to *open* state and therefore the RTCPeerConnection is always in *connecting* state. Also, as shown in the above screenshot, the *iceGatheringState* changes as *new* -> *gathering* -> *completed*. However, the *iceCandidateState* changes only from *new* to *checking*. It never comes to *completed* state. It might be related to network issues. This issue needs to be investigated.
+# Steps to run the product (with current state)
+
+1. Clone the repository and navigate to the project.
+``` 
+git clone https://github.com/Rijul5/vscode-teletype.git
+cd vscode-teletype
+```
+
+2. Open the Atom editor, share the portal, and copy Portal ID.
+
+3. Open the project inside VS the Code.
+
+```
+code .
+```
+4. Press *F5* to compile the extension. It will open the extension development host.
+
+5. Inside extension development host, press *F1* or *CTRL+SHIFT+P* to launch the command *Join Portal*.
+
+6. Prompt inbox will appear. Enter the Portal ID inside it and press enter.
+
+7. You will join the portal as a guest.
+
+
+
+# Challenges and Future Work
 
 + The editor and guest bindings need to be completed.
 
-+ Teletype-server library should be added to the above VS code extension to enable a host to create a headless server from Che so that guests can join it from different editors.
++ Teletype-server library should be added to the above VS code extension to enable a user to create a headless server from Che so that guests can join the server from different editors.
 
-+ Synchronization challenges in live collaboration mode with multiple language servers and editors, need to be explored.
++ Synchronization challenges need to be addressed in a live collaboration environment where multiple language servers and editors exist.
 
 
 # Conclusions
-During this assignment, I learned many technologies - Eclipse Che, Pusher, Atom-Teletype, VS Code Extensions, WebRTC, and Typescript. It was a great experience in developing a VS Code extension and explore different ways to deploy this extension in Che. The prime challenge in this research was to use teletype libraries in VS Code extension because most of the features used currently in teletype such as Pusher and WebRTC have direct dependencies on the browser. It is observed through this project that there is no way to use WebRTC in VS Code extensions. The available packages such as node-wbrtc and node-rtc-peer-connection are either hard to install, broken, or not maintained. The options such as including a wrtc binary for every operating system or spawning a whole new electron process are not ideal obviously. Therefore, other research and development for pair programming environment in Che in other directions are required.
+During this assignment, I learned many technologies - Eclipse Che, Pusher, Atom-Teletype, VS Code Extensions, WebRTC, and Typescript. It was a great experience in developing a VS Code extension and explore different ways to deploy this extension in Che. The prime challenge in this research was to use teletype libraries in VS Code extension because most of the features used in teletype such as Pusher and WebRTC have direct dependencies on the browser. It is observed through this project that it is difficult to use WebRTC in VS Code extensions. The available packages such as node-webrtc and node-rtc-peer-connection are either hard to install, broken, or not maintained. The options such as including a wrtc binary for every operating system or spawning a whole new electron process are not ideal. However, in the end, we were able to establish the connection using wrtc and a variant of electron-wbrtc and now testing their behavior in Che. We would further want to bind the guest and editor so that a real-time pair programming environment can be created in Eclipse Che.
