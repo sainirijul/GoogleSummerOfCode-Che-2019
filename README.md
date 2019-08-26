@@ -1,5 +1,5 @@
 # Google Summer Of Code Eclipse Che 2019
-This repository reports the work done under Google Summer of Code'2019 for the [Eclipse Che](https://www.eclipse.org/che/) Project.
+This repository reports the work done under Google Summer of Code'2019 for the [Eclipse Che](https://www.eclipse.org/che/) Project - *Live Synchronization Skeleton for CoEditing in Che and Theia*.
 
 # Introduction
 Increasingly, distributed software development teams rely on online collaboration. The proposed project aims to implement the first skeleton of CoEditing in Eclipse Che and Theia. In this project, we tried to investigate how a VS Code extension can be deployed in Che's sidecar as a remote plugin. The motivation behind this was to keep the functionality of this VS Code extension separate from the operations of Che IDE and other plugins. In addition, the aim of the project was to develop a [VS Code extension](https://marketplace.visualstudio.com/) which can utilize [Teletype](https://github.com/atom/teletype) libraries in order to create a pair programming environment in Che once the extension is executed in a sidecar as a remote plugin.
