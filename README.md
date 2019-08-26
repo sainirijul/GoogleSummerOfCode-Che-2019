@@ -33,16 +33,13 @@ Next, *Join Portal* command along with the functionality was added so that any g
 
 *code Link: [GitHub Repository dev branch - Join Portal commit](https://github.com/Rijul5/vscode-teletype/commit/cc570c7af8031ed8d83422a432526351dba562b5)*
 
-
-![alt text](https://github.com/Rijul5/GoogleSummerOfCode-Che-2019/blob/master/images/Pusher-Debug-Console.png)
-
+<img src="images/Pusher-Debug-Console.png" alt="Debug Console of Pusher" class="inline"/>
 
 + **Developing VS Code Teletype extension for Che: RTCPeerConnection and Guest-Portal Bindings (Completed on August 25, 2019)**
 
 In this sprint I tried different packages in order to establish RTCPeerConnection between the client/guest created from VS Code extension and the portal/host launched from the Atom editor. Eventually, I decided to use [wrtc](https://www.npmjs.com/package/wrtc) package. I also used external sources available on GitHub to figure out the guest-portal and editor bindings as my main focus was on developing a simple extension with teletype libraries that work well in Che through a devfile. At the end of this step, I was able to send signals from the guest (VS code) to host(Atom Editor). There are still some challenges in this direction which I am explaining in the next step.
 
-![alt text](https://github.com/Rijul5/GoogleSummerOfCode-Che-2019/blob/master/images/events.png)
-
+<img src="images/events.png" alt="Events Received on Atom from VS Code guest" class="inline"/>
 
 # Challenges and Future Work
 
