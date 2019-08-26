@@ -54,11 +54,9 @@ In this sprint, I tried different packages in order to establish RTCPeerConnecti
 git clone https://github.com/Rijul5/vscode-teletype.git
 cd vscode-teletype
 ```
-
 2. Open the Atom editor, share the portal, and copy Portal ID.
 
 3. Open the project inside VS the Code.
-
 ```
 code .
 ```
